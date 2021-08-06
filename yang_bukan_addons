@@ -1,26 +1,30 @@
 //BACA BISMILLLAH DULU GUYS
 
-function onFormSubmitted() {
-  //yak silahkan sesuaikan variabel2 dibawah sesuai kebutuhan, list link grup wa nya kalo mau ditambah juga sabi
-  var list_link_grup_wa = ["","",""]
-  var jumlah_peserta_per_grup = 200
-  //untuk variabel informasi, ini yg bakal ditampilin di halaman konfirmasi nantinya, kalian bisa edit suka2 kalian
-  //kalo mau enter, ketik \n aja. Ati2 ketuker sama /n ya. Beda, yg bener tuh biasanya posisinya diantara enter dan backspace
-  //trus saya bikin berbaris2 dan terpisah tanda "+" tuh biar enak diliat aja, biar kebayang apa yg akan diliat sama peserta
-  //trus nanti "{{link}}" tuh bakan diganti sama link yg wa group nya
-  var informasi =
-  "Terimakasih sudah mendaftar yaa\n"+
-  "\n"+
-  "Ini link grup whatsapp nya yaa, silahkan join:\n"+
-  "{{link}}"
+//yak silahkan sesuaikan variabel2 dibawah sesuai kebutuhan, list link grup wa nya kalo mau ditambah juga sabi
+var list_link_grup_wa = ["","",""]
 
+var jumlah_peserta_per_grup = 200
 
-
-  //tolong jangan utak atik yg dibawah ini ya :)
-  //di Undo aja kalo ke utak atik :)
-  //atau ya utak atik aja kalo mau nyoba2 sekalian belajar
-  var form=FormApp.getActiveForm();informasi=informasi.replace("{{link}}",list_link_grup_wa[Math.floor(form.getResponses().length/jumlah_peserta_per_grup)]);form.setConfirmationMessage(informasi)
-}
+//untuk variabel informasi, ini yg bakal ditampilin di halaman konfirmasi nantinya, kalian bisa edit suka2 kalian, kalo mau enter, ketik \n aja. Ati2 ketuker sama /n ya. Beda, yg bener tuh biasanya posisinya diantara enter dan backspace. Trus saya bikin berbaris2 dan terpisah tanda "+" tuh biar enak diliat aja, biar kebayang apa yg akan diliat sama peserta. Trus nanti "{{link}}" tuh bakan diganti sama link yg wa group nya
+var informasi =
+"Terimakasih sudah mendaftar yaa\n"+
+"\n"+
+"Ini link grup whatsapp nya yaa, silahkan join:\n"+
+"{{link}}"
 
 //Kalo dah selesai disetting, tolong diatur triggernya ya, kalo mau gampangnya si tinggal klik tanda panah bawah (v) disebelah atas2, disamping tulisan "Execution log". trus pilih "run_yg_ini". dah otomatis kepasang triggernya
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------
+//tolong jangan utak atik yg dibawah ini ya :)
+//di Undo aja kalo ke utak atik :)
+//atau ya utak atik aja kalo mau nyoba2 sekalian belajar
 function run_yg_ini(){if(ScriptApp.getProjectTriggers().length>0){ScriptApp.newTrigger("onFormSubmitted").forForm(FormApp.getActiveForm()).onFormSubmit().create();Logger.log("Oke Sip insyaallah dah aman")}else{Logger.log("Astaghfirullah, udah ada triggernya kaga usah dibikin lagi")}}
+function onFormSubmitted() {var form=FormApp.getActiveForm();informasi=informasi.replace("{{link}}",list_link_grup_wa[Math.floor(form.getResponses().length/jumlah_peserta_per_grup)]);form.setConfirmationMessage(informasi)}
